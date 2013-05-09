@@ -1,0 +1,19 @@
+<h2>Welcome Sinatra</h2>
+
+<p>List All Browse</p>
+<% if @bs.length > 0 %>
+<table>
+	<% @bs.each do |b| %>
+		<tr>
+			<td width="30px"><%= b.vi %></td>
+			<td width="80px"><%= b.dt %></td>
+			<td width="30px"><%= b.pn %></td>
+			<td width="30px"><%= b.pos %></td>
+			<td width="30px"><%= b.c %></td>
+			<td width="50px"><%= b.kw %></td>
+			<td width="50px"><%= b.bn %></td>
+			<td width="50px"><%= b.dm %></td>
+		</tr>
+	<% end %>
+</table>
+<% end %>
