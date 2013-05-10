@@ -4,8 +4,23 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <title>Sinatra</title>
-
+ <script type="text/javascript">
+ $(function (){
+	 $("#generate_txt").click(function(){
+		 $.ajax({
+			 url: "/generate_txt",
+			 data: "start_date=" + $("#start_date").val() + "&end_date=" + $("#end_date").val(),
+			 type: "post",
+			 success: function(data){
+				 html = '<a href="/db/' + data + '">Download</a>';
+				 $("#download").html(html);
+			 }
+		 });
+	 });
+ });
+ </script>
 
 </head>
 	<body>

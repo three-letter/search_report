@@ -1,18 +1,43 @@
 <h2>Welcome Sinatra</h2>
+<%= flash[:notice] unless flash[:notice].nil? %>
 
-<p>List All Browse</p>
+<form action="/search" method="post">
+	Start:<input type="text" name="start_date">
+	End:<input type="text" name="end_date">
+	<input type="submit" value="search">
+</form>
+
 <% if @bs.length > 0 %>
+<p>List All Browse</p>
+
+<div id="download">
+<a id="generate_txt" href="#">Generate_Txt</a>
+<input type="hidden" id="start_date" value="<%= @start_date %>" />
+<input type="hidden" id="end_date" value="<%= @end_date %>" />
+</div>
 <table>
+		<tr>
+			<td width="80px">View_id</td>
+			<td width="250px">Date</td>
+			<td width="50px">Page</td>
+			<td width="50px">Pos</td>
+			<td width="50px">Size</td>
+			<td width="50px">Sort</td>
+			<td width="100px">Keyword</td>
+			<td width="100px">Browser</td>
+			<td width="50px">Domain</td>
+		</tr>
 	<% @bs.each do |b| %>
 		<tr>
-			<td width="30px"><%= b.vi %></td>
-			<td width="80px"><%= b.dt %></td>
-			<td width="30px"><%= b.pn %></td>
-			<td width="30px"><%= b.pos %></td>
-			<td width="30px"><%= b.c %></td>
-			<td width="50px"><%= b.kw %></td>
-			<td width="50px"><%= b.bn %></td>
-			<td width="50px"><%= b.dm %></td>
+			<td><%= b.view_id %></td>
+			<td><%= b.date %></td>
+			<td><%= b.page %></td>
+			<td><%= b.pos %></td>
+			<td><%= b.size %></td>
+			<td><%= b.sort %></td>
+			<td><%= b.keyword %></td>
+			<td><%= b.browser %></td>
+			<td><%= b.domain %></td>
 		</tr>
 	<% end %>
 </table>

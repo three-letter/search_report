@@ -6,14 +6,15 @@ class Browse
 
 	# All fields with type in the model browse
 	property :id, Serial
-	property :vi, String
-	property :dt, DateTime
-	property :pn, Integer
-	property :pos, Integer
-	property :c, Integer
-	property :kw, String
-	property :bn, String
-	property :dm, String
+	property :view_id, String
+	property :date, DateTime
+	property :page, String
+	property :pos, String
+	property :size, String
+	property :sort, Integer, :default => 0
+	property :keyword, String
+	property :browser, String
+	property :domain, String
 
 end
 
